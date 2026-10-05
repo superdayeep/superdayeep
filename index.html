@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stripes V1 - Circle Hub</title>
+    <title>Superdayeep Hub</title>
     <style>
-        /* Cyberpunk dark background with blue accents */
         body {
             background-color: #060a12;
             color: #ffffff;
@@ -19,7 +18,6 @@
             margin: 0;
             box-sizing: border-box;
         }
-        
         .container {
             width: 100%;
             max-width: 550px;
@@ -27,25 +25,20 @@
             flex-direction: column;
             align-items: center;
         }
-
-        /* Fully circular Avatar Display Box with a neon blue glow */
         .avatar-display-box {
             background-color: #0d1527;
             border: 3px solid #00d2ff;
-            border-radius: 50%; /* Makes the box a perfect circle */
+            border-radius: 50%;
             width: 260px;
             height: 260px;
             box-sizing: border-box;
             box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Hides everything outside the circle */
+            overflow: hidden;
             position: relative;
         }
-
-        /* Zooms and crops your picture down to only show the monkey inside the ring */
         .avatar-img {
             width: 165%;
             height: 165%;
@@ -54,32 +47,49 @@
             top: -30%; 
             left: -32.5%;
         }
-
-        /* Title styling positioned below the circle */
         .hub-title {
             color: #00d2ff;
             font-size: 1.4rem;
             font-weight: bold;
-            margin-top: 25px;
+            margin: 25px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
-            text-align: center;
+        }
+        /* Navigation Button Styling */
+        .nav-btn {
+            background-color: #0d1527;
+            border: 2px solid #00d2ff;
+            border-radius: 8px;
+            color: #00d2ff;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            background-color: #00d2ff;
+            color: #060a12;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
-        <!-- Circular Avatar Container -->
         <div class="avatar-display-box">
-            <img class="avatar-img" src="avatar.png" alt="Gorilla Tag Monkey Profile Picture">
+            <img class="avatar-img" src="avatar.png" alt="Avatar">
         </div>
 
-        <!-- Title Display Text below the avatar circle -->
         <h1 class="hub-title">SUPERDAYEEP HUB</h1>
 
+        <!-- This button links to your new downloads page -->
+        <a href="downloads.html" class="nav-btn">Enter Download Hub</a>
     </div>
 
 </body>
