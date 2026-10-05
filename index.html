@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Mod Hub</title>
+    <style>
+        body {
+            background-color: #0d0606;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 550px;
+        }
+        .announcement {
+            color: #ff3333;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        .mod-card {
+            background-color: #160e10;
+            border: 1px solid #2a1417;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+        .mod-card:hover {
+            transform: translateY(-2px);
+            border-color: #ff3333;
+        }
+        .mod-title {
+            color: #ff3333;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 6px 0;
+        }
+        .mod-desc {
+            color: #a09597;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="announcement">Coming Soon</div>
+
+        <!-- You can change the names and links below anytime -->
+        <a href="#" class="mod-card">
+            <h2 class="mod-title">SPM Gorilla Tag Mods</h2>
+            <p class="mod-desc">Mod Menu No PC</p>
+        </a>
+
+        <a href="#" class="mod-card">
+            <h2 class="mod-title">Fangame Modder</h2>
+            <p class="mod-desc">ye, mods fangames</p>
+        </a>
+
+        <a href="#" class="mod-card">
+            <h2 class="mod-title">Delta</h2>
+            <p class="mod-desc">delta new adb</p>
+        </a>
+    </div>
+
+</body>
+</html>
