@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08080b" />
+  <meta name="description" content="dashvr.lol — mods, tools, downloads, and a few links, all in one place." />
+  <title>dashvr.lol</title>
+  <style>
+    :root {
+      --bg: #08080b;
+      --panel: #101015;
+      --text: #f7f7fa;
+      --muted: #b9bdc8;
+      --red: #ff174f;
+      --red-soft: #ff4d65;
+      --border: rgba(255, 23, 79, .62);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 23, 79, .08), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 34px 0 28px; }
+    .hero { text-align: center; }
+    .avatar-wrap {
+      width: 148px; height: 148px; margin: 0 auto 10px; padding: 6px;
+      border-radius: 50%; background: linear-gradient(135deg, var(--red), #ff335e 55%, #a90c39);
+      box-shadow: 0 0 35px rgba(255, 23, 79, .16);
+    }
+    .avatar {
+      display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+      background: #202027;
+    }
+    h1 { margin: 0; font-size: clamp(2.6rem, 7vw, 4.5rem); line-height: 1.06; letter-spacing: -2.5px; font-weight: 850; }
+    h1 span { color: var(--red); }
+    .tagline { margin: 6px 0 15px; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.45rem); }
+    .badges { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 12px; padding: 8px 16px;
+      border: 2px solid var(--red); border-radius: 999px; color: var(--muted);
+      background: rgba(255,255,255,.015); transition: transform .2s ease, background .2s ease;
+    }
+    .badge:hover { transform: translateY(-3px); background: rgba(255,23,79,.08); }
+    .badge strong { color: var(--red); font-size: 1.05rem; }
+    .divider { height: 24px; width: 1px; background: var(--red); }
+    .icon { width: 22px; height: 22px; display: inline-grid; place-items: center; color: var(--text); flex: 0 0 auto; }
+    .icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .section-title { text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); margin: 28px 0 12px; letter-spacing: -.5px; }
+    .tips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px; margin: 0 0 30px; }
+    .tip { display: flex; align-items: flex-start; gap: 13px; padding: 8px 2px; border-radius: 14px; transition: transform .2s ease; transform-style: preserve-3d; }
+    .tip-icon {
+      display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; flex: 0 0 42px;
+      color: #fff; background: linear-gradient(135deg, var(--red), #d80b42);
+      box-shadow: 0 5px 18px rgba(255, 23, 79, .13);
+    }
+    .tip-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .tip h3 { margin: 0 0 3px; font-size: 1.08rem; }
+    .tip p { margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.55; }
+    .download {
+      width: min(920px, 100%); margin: 0 auto 20px; padding: 14px 22px; display: flex; align-items: center; gap: 20px;
+      border: 1px solid var(--border); border-radius: 19px;
+      background: linear-gradient(110deg, rgba(255,23,79,.035), rgba(255,255,255,.015));
+    }
+    .download .big-icon { width: 48px; height: 48px; color: var(--red); flex: 0 0 auto; }
+    .download .big-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .download h2 { display: inline; margin: 0; font-size: 1.2rem; }
+    .warning { display: inline-block; margin-left: 10px; padding: 2px 9px; border-radius: 5px; background: var(--red); color: #12060a; font-size: .85rem; font-weight: 800; }
+    .download p { margin: 3px 0 0; color: var(--muted); }
+    footer { text-align: center; color: var(--muted); font-size: .93rem; }
+    .copyright {
+      display: inline-flex; align-items: center; gap: 12px; padding: 7px 15px; margin: 0 0 5px;
+      border: 1.5px solid var(--red); border-radius: 999px; color: var(--text);
+    }
+    .copyright strong { color: var(--red); font-size: 1.08rem; }
+    footer p { margin: 2px 0; }
+    footer .bold { color: var(--text); font-weight: 700; }
+    @media (max-width: 800px) {
+      .tips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 22px; }
+    }
+    @media (max-width: 520px) {
+      .page { width: min(100% - 28px, 1120px); padding-top: 26px; }
+      .avatar-wrap { width: 126px; height: 126px; }
+      .badges { gap: 10px; }
+      .badge { padding: 7px 12px; gap: 8px; }
+      .tips { grid-template-columns: 1fr; gap: 4px; }
+      .tip { padding: 7px 0; }
+      .download { align-items: flex-start; padding: 15px; gap: 12px; }
+      .download .big-icon { width: 36px; height: 36px; }
+      .warning { margin-left: 0; margin-top: 6px; }
+      .download h2 { display: block; }
+      .copyright { gap: 8px; padding: 7px 11px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="avatar-wrap">
+        <!-- Replace this URL with your own uploaded avatar image if needed. -->
+        <img class="avatar" src="https://raw.githubusercontent.com/stripesvr/StripesHub/main/assets/img/151.png" alt="Black gorilla wearing a top hat with a red rose" />
+      </div>
+      <h1>dash<span>vr</span></h1>
+      <p class="tagline">Mods, tools, downloads, and a few links, all in one place.</p>
+      <div class="badges">
+        <a class="badge" href="https://dashvr.lol" target="_blank" rel="noopener noreferrer" aria-label="Visit dashvr.lol">
+          <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
+          <span>site</span><span class="divider"></span><strong>dashvr.lol</strong>
+        </a>
+        <div class="badge" aria-label="304,000 plus views">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span>views</span><span class="divider"></span><strong>304,000+</strong>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="using-title">
+      <h2 class="section-title" id="using-title">Using the site</h2>
+      <div class="tips">
+        <article class="tip tilt">
+          <span class="tip-icon"><svg viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z" fill="currentColor" stroke="none"/></svg></span>
+          <div><h3>Click to Enter</h3><p>Starts the music. The track keeps playing as you move between pages.</p></div>
+        </article>
+        <article class="tip tilt">
+          <span class="tip-icon"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span>
+          <div><h3>Search</h3><p>On pages with a search box, press <kbd>/</kbd> to jump to it, and <kbd>Esc</kbd> to clear it.</p></div>
+        </article>
+        <article class="tip tilt">
+          <span class="tip-icon"><svg viewBox="0 0 24 24"><rect x="6" y="5" width="13" height="16" rx="2"/><path d="M9 5V3h7v2M9 10h7M9 14h7"/></svg></span>
+          <div><h3>Copy</h3><p>Command buttons copy the text straight to your clipboard.</p></div>
+        </article>
+        <article class="tip tilt">
+          <span class="tip-icon"><svg viewBox="0 0 24 24"><path d="m5 3 14 10-6 1-3 6L5 3Z" fill="currentColor" stroke="none"/></svg></span>
+          <div><h3>Hover</h3><p>Buttons and cards tilt toward your cursor.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="download" aria-labelledby="downloads-title">
+      <span class="big-icon"><svg viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg></span>
+      <div>
+        <h2 id="downloads-title">Downloads</h2>
+        <span class="warning">read the notes first</span>
+        <p>Read the notes on each page before you install anything. Files are shared as they are, and you install them at your own risk.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="copyright"><strong>© dashvr.lol</strong><span class="divider"></span><span>all rights reserved</span></div>
+      <p class="bold">Don't skid it. Don't copy it.</p>
+      <p>Don't re-upload the files, the code, or the design anywhere else.</p>
+      <p>If you want to use something from this site, ask first. If I find it copied, I will contact legal.</p>
+    </footer>
+  </main>
+  <script>
+    // Subtle cursor tilt on the instruction cards.
+    const cards = document.querySelectorAll('.tilt');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      cards.forEach(card => {
+        card.addEventListener('pointermove', event => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = `perspective(650px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-2px)`;
+        });
+        card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+      });
+    }
+  </script>
+</body>
+</html>
